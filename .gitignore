@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+# Ignore generated invoices
+invoices/
+*.pdf
+
+# Ignore build files
+target/
