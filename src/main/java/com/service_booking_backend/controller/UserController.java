@@ -31,7 +31,7 @@ public class UserController {
 
         User authUser = (User) authentication.getPrincipal();
 
-        // 🔥 FETCH FRESH USER FROM DB
+        // 🔥 FETCH FRESH USER FROM Database
         User user = userRepository.findById(authUser.getId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
