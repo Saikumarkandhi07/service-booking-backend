@@ -18,10 +18,9 @@ public class InvoiceController {
     @Autowired
     private InvoiceRepository invoiceRepo;
 
-    // 🔐 PUBLIC PDF VIEW (NO JWT REQUIRED)
     @GetMapping("/public/{token}")
     public ResponseEntity<byte[]> viewInvoice(
-            @PathVariable("token") String token   // ✅ THIS FIXES EVERYTHING
+            @PathVariable("token") String token
     ) throws Exception {
 
         Invoice inv = invoiceRepo.findByPublicToken(token)

@@ -33,20 +33,17 @@ public class Invoice {
     private String razorpayPaymentId;
     private String pdfPath;
 
-    // 🔐 Public token for secure PDF viewing (no JWT needed)
     @Column(unique = true, nullable = false)
     private String publicToken;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    // ✅ NEW: Invoice archiving (SAFE)
     @Column(nullable = false)
     private boolean archived = false;
 
     private LocalDateTime archivedAt;
 
-    /* Auto generate token */
     public Invoice() {
         this.publicToken = UUID.randomUUID().toString();
         this.createdAt = LocalDateTime.now();
