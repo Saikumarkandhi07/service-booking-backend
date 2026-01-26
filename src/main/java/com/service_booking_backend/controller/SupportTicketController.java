@@ -28,11 +28,12 @@ public class SupportTicketController {
             return ResponseEntity.status(401).body("Unauthorized");
         }
 
-        // 🔥 THIS IS THE FIX
+       
         User user = (User) auth.getPrincipal();
 
         SupportTicket ticket = new SupportTicket();
         ticket.setUser(user);
+        ticket.setEmail(user.getEmail());
         ticket.setIssueType(req.getIssueType());
         ticket.setSubject(req.getSubject());
         ticket.setDescription(req.getDescription());
@@ -50,7 +51,6 @@ public class SupportTicketController {
             return ResponseEntity.status(401).body("Unauthorized");
         }
 
-        // 🔥 THIS IS THE FIX
         User user = (User) auth.getPrincipal();
 
         return ResponseEntity.ok(

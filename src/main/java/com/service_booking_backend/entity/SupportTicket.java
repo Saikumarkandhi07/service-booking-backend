@@ -15,8 +15,7 @@ public class SupportTicket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    // 🔥 RELATION TO USER
+    
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -27,8 +26,8 @@ public class SupportTicket {
     @Column(length = 1000)
     private String description;
 
-    private String priority;   // Low / Medium / High
-    private String status;     // OPEN / IN_PROGRESS / CLOSED
+    private String priority;   
+    private String status; 
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -38,7 +37,7 @@ public class SupportTicket {
     
     
     @Column(nullable = false)
-    private String email;   // for guest / login support
+    private String email; 
 
     @Enumerated(EnumType.STRING)
     private TicketCategory category;
