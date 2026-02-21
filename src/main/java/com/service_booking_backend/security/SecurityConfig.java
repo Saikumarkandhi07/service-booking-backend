@@ -58,6 +58,7 @@ public class SecurityConfig {
 
                 // ================= PUBLIC =================
                 .requestMatchers("/error").permitAll()
+                .requestMatchers("/health").permitAll()
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
                 // Auth APIs
